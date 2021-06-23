@@ -3,9 +3,9 @@ import React, { Fragment } from "react";
 
 const Loader = () => {
   return (
-    <div>
+    <Fragment>
       <h1 className="text-center">Loading...</h1>
-    </div>
+    </Fragment>
   );
 };
 

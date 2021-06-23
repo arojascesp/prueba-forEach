@@ -1,12 +1,11 @@
 //TI imports
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
-const CharacterCard = (props) => {
+const CharacterCard = ({ character }) => {
+  const [isVisible, setIsVisible] = useState(false);
   return (
     <Fragment>
-      <hr />
-      <h1>{props.character.name}</h1>
-      <hr />
+      <button className="btn btn-dark mb-2">{character.name}</button>
     </Fragment>
   );
 };

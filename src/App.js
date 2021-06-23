@@ -2,12 +2,12 @@
 import React from "react";
 
 //components imports
-import CharacterListPage from "./pages/CharacterListPage";
+import Home from "./pages/Home";
 
 const App = () => {
   return (
     <div className="App">
-      <CharacterListPage />
+      <Home />
     </div>
   );
 };

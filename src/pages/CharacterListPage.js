@@ -9,11 +9,12 @@ import PagesNavigation from "../components/PagesNavigation";
 
 class CharacterListPage extends Component {
   state = {
+    loading: true,
+    error: null,
     data: {
       results: [],
     },
-    loading: true,
-    error: null,
+    modalIsOpen: false,
   };
 
   componentDidMount() {
@@ -22,40 +23,46 @@ class CharacterListPage extends Component {
 
   fetchData = async () => {
     try {
-      const response = await fetch("https://swapi.dev/api/people/");
+      const response = await fetch("https://swapi.dev/api/people");
       const data = await response.json();
 
-      this.setState({
-        data: data,
-        loading: false,
-      });
+      this.setState({ loading: false, data: data });
     } catch (error) {
       this.setState({
         loading: false,
         error: error,
+        data: null,
       });
-      return <ErrorComponent error={error} />;
     }
   };
 
-  render() {
-    const characterList = this.state.data.results;
-    const nextPage = this.state.data.next;
-    const previousPage = this.state.data.previous;
+  handleOpenModal = (e) => {
+    this.setState({ modalIsOpen: true });
+  };
 
+  handleCloseModal = (e) => {
+    this.setState({ modalIsOpen: false });
+  };
+
+  render() {
     if (this.state.loading) {
       return <Loader />;
     }
+    if (this.state.error) {
+      return <ErrorComponent error={this.state.error} />;
+    }
 
     return (
-      <Fragment>
+      <div className="container">
         <CharacterList
-          characterList={characterList}
-          nextPage={nextPage}
-          previousPage={previousPage}
+          characterList={this.state.data.results}
+          onOpenModal={this.handleOpenModal}
+          onCloseModal={this.handleCloseModal}
+          modalIsOpen={this.state.modalIsOpen}
         />
+
         <PagesNavigation />
-      </Fragment>
+      </div>
     );
   }
 }
