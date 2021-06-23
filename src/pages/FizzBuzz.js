@@ -4,7 +4,7 @@ import React, { Fragment } from "react";
 //components imports
 import NumberList from "../components/NumberList";
 
-const Functional = () => {
+const FizzBuzz = () => {
   return (
     <Fragment>
       <NumberList />
@@ -12,4 +12,4 @@ const Functional = () => {
   );
 };
 
-export default Functional;
+export default FizzBuzz;

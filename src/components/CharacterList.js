@@ -1,34 +1,24 @@
 //TI imports
 import React from "react";
-import { Link } from "react-router-dom";
 
 //components imports
-import CharacterCard from "../components/CharacterCard";
-import CharacterDetail from "../components/CharacterDetail";
+import CharacterButton from "./CharacterButton";
 
 const CharacterList = (props) => {
-  const characterList = props.characterList;
-
   return (
     <div className="container">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Character's Name</th>
-          </tr>
-        </thead>
-        <tbody>
-          {characterList.map((character) => {
-            return (
-              <tr>
-                <td>
-                  <CharacterCard character={character} />
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <ul>
+        {props.characterList.map((character) => (
+          <li key={character.name} type="none" className="text-start my-1">
+            <CharacterButton
+              character={character}
+              modalIsOpen={props.isOpen}
+              closeModal={props.closeModal}
+              openModal={props.openModal}
+            />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

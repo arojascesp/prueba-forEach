@@ -1,11 +1,11 @@
 //TI imports
-import React, { Fragment } from "react";
+import React from "react";
 
 const Loader = () => {
   return (
-    <Fragment>
-      <h1 className="text-center">Loading...</h1>
-    </Fragment>
+    <React.Fragment>
+      <h1>Loading...</h1>
+    </React.Fragment>
   );
 };
 
