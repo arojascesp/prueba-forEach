@@ -1,21 +1,25 @@
 //TI imports
 import React from "react";
+import { BrowserRouter, Link } from "react-router-dom";
 
 //components imports
-import CharacterButton from "./CharacterButton";
+import CharacterCard from "./CharacterCard";
 
 const CharacterList = (props) => {
   return (
     <div className="container">
-      <ul>
+      <ul className="row">
         {props.characterList.map((character) => (
-          <li key={character.name} type="none" className="text-start my-1">
-            <CharacterButton
-              character={character}
-              modalIsOpen={props.isOpen}
-              closeModal={props.closeModal}
-              openModal={props.openModal}
-            />
+          <li
+            key={character.name}
+            type="none"
+            className="text-start my-1 col-sm-12 col-md-3 col-xxl-2"
+          >
+            <BrowserRouter>
+              <Link to="/swapi/details">
+                <CharacterCard character={character} />
+              </Link>
+            </BrowserRouter>
           </li>
         ))}
       </ul>

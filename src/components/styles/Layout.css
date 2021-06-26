@@ -1,3 +1,8 @@
 .Layout{
-  background-image: linear-gradient(to right, violet, purple);
+  
+  max-width: 100%;
+}
+
+body {
+background-image: linear-gradient(to right, violet, purple);
 }

@@ -1,7 +1,7 @@
 //TI imports
 import React, { Fragment } from "react";
 
-const Number = ({ number }) => {
+const Number = ({ number, className }) => {
   const isThree = number % 3 === 0;
 
   const isFive = number % 5 === 0;
@@ -21,7 +21,13 @@ const Number = ({ number }) => {
   }
   return (
     <Fragment>
-      <h2 className="alert alert-warning text-center">{number}</h2>
+      <h2
+        className={`alert  text-center text-white ${className} ${
+          isNaN(number) && "text-muted"
+        }`}
+      >
+        {number}
+      </h2>
     </Fragment>
   );
 };

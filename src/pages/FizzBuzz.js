@@ -1,14 +1,14 @@
 //TI imports
-import React, { Fragment } from "react";
+import React from "react";
 
 //components imports
 import NumberList from "../components/NumberList";
 
 const FizzBuzz = () => {
   return (
-    <Fragment>
+    <div className="container-fluid">
       <NumberList />
-    </Fragment>
+    </div>
   );
 };
 

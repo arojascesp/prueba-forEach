@@ -1,0 +1,17 @@
+h2.titulo {
+  font-weight: bolder;
+  font-size: 3rem;
+}
+
+h1.titulo {
+  font-weight: bolder;
+  font-size: 4rem;
+}
+
+.font-kaushan {
+  font-family: 'Kaushan Script', sans-serif;
+}
+
+.star-jedi-font{
+  font-family: 'Star Jedi', 'sans serif';
+}

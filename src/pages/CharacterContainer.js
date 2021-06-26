@@ -46,14 +46,6 @@ class CharacterContainer extends Component {
     this.fetchData(this.state.data.previous);
   };
 
-  handleOpenModal = (e) => {
-    this.setState({ modalIsOpen: "true" });
-  };
-
-  handleCloseModal = (e) => {
-    this.setState({ modalIsOpen: "false" });
-  };
-
   render() {
     if (this.state.loading) {
       return <Loader />;
@@ -63,12 +55,13 @@ class CharacterContainer extends Component {
     }
     return (
       <div className="container">
-        <CharacterList
-          characterList={this.state.data.results}
-          isOpen={this.state.modalIsOpen}
-          openModal={this.handleOpenModal}
-          closeModal={this.handleCloseModal}
-        />
+        <h1
+          className="fw-bolder star-jedi-font text-white text-center titulo shadow-sm my-4"
+          role="button"
+        >
+          STAR WARS <br /> API
+        </h1>
+        <CharacterList characterList={this.state.data.results} />
         <PagesNavigation
           nextPage={this.state.data.next}
           previousPage={this.state.data.previousPage}
